@@ -3,9 +3,9 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
   var artObjects = [];
   var artObject = {};
 
-  var setArtObject = function(){
-    angular.copy(newArtObject, artObject);
-  };
+  // var setArtObject = function(){
+  //   angular.copy(newArtObject, artObject);
+  // };
 
   var getArtObejcts = function(){
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
@@ -25,43 +25,56 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
   };
 
   var upsertArtObject = function(artObject){
-    var params = {
-        artObject: artObject
-    };
+ //     id: 1,
+ // period: nil,
+ // color: nil,
+ // feature_image: nil,
+ // thumbnail: nil,
+ // medium: nil,
+ // title: "first obejct",
+ // description: nil,
+ // timeline_id: nil,
+ // created_at: Wed, 08 Apr 2015 22:03:49 UTC +00:00,
+ // updated_at: Wed, 08 Apr 2015 22:03:49 UTC +00:00>
     debugger;
-    if (artObject.id) {
-        return $http.put(ServerUrl + '/artObjects/' + artObject.id, params)
-          .then(getArtObejcts);
-    } else {
-        return $http.post(ServerUrl + '/artObjects', params)
-          .then(function(response){
-              artObjects.push(response.data);
-          });
-    }
-  };
+    var params = {
+        artObject: {
+          date: artObject.date,
+          medium: artObject.medium,
+          title: artObject.title,
+          description: artObject.description
+        }
+    };
 
-  var deleteArtObject = function(artObject){
-    return $http.delete(ServerUrl + '/artObjects' + artObject.id)
+
+    return $http.post(ServerUrl + '/art_objects', params)
       .then(function(response){
-        artObjects.splice(_findArtObjectsIndexById(artObject.id), 1);
+          // artObjects.push(response.data);
       });
   };
 
-  var _findArtObjectsIndexById = function(id){
-    for (var i = 0; i < artObjects.length; i++) {
-      if (artObjects[i].id === id) {
-        return i;
-      }
-    }
-  };
+  // var deleteArtObject = function(artObject){
+  //   return $http.delete(ServerUrl + '/artObjects' + artObject.id)
+  //     .then(function(response){
+  //       artObjects.splice(_findArtObjectsIndexById(artObject.id), 1);
+  //     });
+  // };
+
+  // var _findArtObjectsIndexById = function(id){
+  //   for (var i = 0; i < artObjects.length; i++) {
+  //     if (artObjects[i].id === id) {
+  //       return i;
+  //     }
+  //   }
+  // };
 
 
   return {
     artObject: artObject,
     artObjects: artObjects,
-    setArtObject: setArtObject,
-    getArtObejcts: getArtObejcts,
+    // setArtObject: setArtObject,
+    // getArtObejcts: getArtObejcts,
     upsertArtObject: upsertArtObject,
-    deleteArtObject: deleteArtObject
+    // deleteArtObject: deleteArtObject
   };
 }]);

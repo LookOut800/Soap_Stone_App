@@ -3,7 +3,7 @@
     <h1>All da arts</h1>
   </header><!-- /header -->
 
-  <article ng-repeat="item in cooperHewittController.artObjects">
+  <article ng-repeat="item in cooperHewittController.artObjects | limitTo:10">
 
     <h3>{{item.id}}</h3>
     <p>{{item.description}}</p>
