@@ -38,8 +38,8 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
  // updated_at: Wed, 08 Apr 2015 22:03:49 UTC +00:00>
     debugger;
     var params = {
-        artObject: {
-          date: artObject.date,
+        art_object: {
+          // date: artObject.date,
           medium: artObject.medium,
           title: artObject.title,
           description: artObject.description
