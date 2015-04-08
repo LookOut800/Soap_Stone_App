@@ -9,7 +9,6 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
 
   var _parseResponse = function(responseArray){
     // debugger;
-    artObjects = [];
     responseArray.objects.forEach(function(object){
       artObjects.push(object);
     });
@@ -19,7 +18,7 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
     urlParams = _parseSearch(params);
     return $http.get(CooperHewittUrl+'/?method=cooperhewitt.search.objects&access_token=bed285fe62e08707962a655f145ab02b&medium='+urlParams+'&page=1&per_page=100').success(function(response){
-      debugger;
+      // debugger;
       _parseResponse(response);
       console.log(urlParams, response, data, status);
     }).error(function(data,status,config){
