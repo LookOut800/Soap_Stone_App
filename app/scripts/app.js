@@ -19,7 +19,7 @@ angular.module('soapStoneApp', [
   'ngTouch',
   'MainController',
   'MainDirective'
-]).run(function($rootScope, $http, $window, $location, AuthFactory, PostsFactory, CooperHewittFactory){
+]).run(function($rootScope, $http, $window, $location, AuthFactory, PostsFactory, CooperHewittFactory, ArtObjectFactory){
   if(AuthFactory.isAuthenticated()){
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
     // $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
