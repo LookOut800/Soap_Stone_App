@@ -1,48 +1,38 @@
 'use strict';
-angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window', 'CooperHewittUrl', function($http, $window, CooperHewittUrl){
+angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window', 'CooperHewittUrl', 'CooperApiAccess', function($http, $window, CooperHewittUrl, CooperApiAccess){
   var artObjects = [];
   var urlParams;
+
+  var searchObjects = function(params){
+    // var data = JSON.parse($window.localStorage.getItem('ss-user'));
+    urlParams = _parseSearch(params);
+    return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+'&medium='+urlParams+'&page=1&per_page=100').success(function(response){
+      // debugger;
+      _parseResponse(response);
+      console.log(urlParams, response, status);
+    }).error(function(status){
+      console.log('Youre doing it wrong:',status);
+    });
+  };
 
   var _parseSearch = function(params){
     return params.medium;
   };
 
   var _parseResponse = function(responseArray){
-    // debugger;
     responseArray.objects.forEach(function(object){
       artObjects.push(object);
     });
   }
 
-  var searchObjects = function(params){
-    var data = JSON.parse($window.localStorage.getItem('ss-user'));
-    urlParams = _parseSearch(params);
-    return $http.get(CooperHewittUrl+'/?method=cooperhewitt.search.objects&access_token=bed285fe62e08707962a655f145ab02b&medium='+urlParams+'&page=1&per_page=100').success(function(response){
-      // debugger;
-      _parseResponse(response);
-      console.log(urlParams, response, data, status);
-    }).error(function(data,status,config){
-      console.log('Youre doing it wrong:',data,status,config);
-    });
-  };
-
-
   var getRandomObject = function(){
-    var data = JSON.parse($window.localStorage.getItem('ss-user'));
-    // var config = {
-    //   headers: {
-    //     'AUTHORZATION': 'Token token=' + data.token
-    //   }
-    // };
+    // var data = JSON.parse($window.localStorage.getItem('ss-user'));
 
-    return $http.get(CooperHewittUrl+'/?method=cooperhewitt.objects.getRandom&access_token=bed285fe62e08707962a655f145ab02b&has_image=YES').success(function(response){
-      // debugger;
-      angular.copy(response, artObjects);
+    return $http.get(CooperHewittUrl+'cooperhewitt.objects.getRandom&access_token='+CooperApiAccess+'&has_image=YES').success(function(response){
       artObjects.push(response);
-        // debugger;
-      console.log('Random Thing:', response, data, status);
-    }).error(function(data,status,config){
-      console.log('Youre doing it wrong:',data,status,config);
+      console.log('Random Thing:', response, status);
+    }).error(function(status){
+      console.log('Youre doing it wrong:', status);
     });
   };
 
