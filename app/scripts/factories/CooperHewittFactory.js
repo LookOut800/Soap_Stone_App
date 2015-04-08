@@ -6,7 +6,7 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
   var searchObjects = function(params){
     // var data = JSON.parse($window.localStorage.getItem('ss-user'));
     urlParams = _parseSearch(params);
-    return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+'&medium='+urlParams+'&page=1&per_page=100').success(function(response){
+    return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+urlParams+'&page=1&per_page=100').success(function(response){
       // debugger;
       _parseResponse(response);
       console.log(urlParams, response, status);
@@ -16,18 +16,19 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
   };
 
   var _parseSearch = function(params){
-    return params.medium;
+    debugger;
+    return '&color='+ params.color +'&medium='+params.medium +'&period='+ params.period;
   };
 
   var _parseResponse = function(responseArray){
     responseArray.objects.forEach(function(object){
       artObjects.push(object);
     });
-  }
+  };
 
   var getRandomObject = function(){
     // var data = JSON.parse($window.localStorage.getItem('ss-user'));
-
+    debugger;
     return $http.get(CooperHewittUrl+'cooperhewitt.objects.getRandom&access_token='+CooperApiAccess+'&has_image=YES').success(function(response){
       artObjects.push(response);
       console.log('Random Thing:', response, status);

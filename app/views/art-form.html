@@ -16,28 +16,9 @@
 
 <div ng-controller="CooperHewittController">
   <form novalidate class="art-form" name="artForm">
-    Name: <input type="text" ng-model="artObject.name" /><br/>
+    Period: <input type="text" ng-model="artObject.period" /><br/>
     Color: <input type="text" ng-model="artObject.color" /><br/>
     Medium: <input type="text" ng-model="artObject.medium" />
-<!--     <input type="button" ng-click="reset()" value="Reset" /> -->
     <input type="submit" ng-click="search(artObject)" value="Search!" />
   </form>
-<!--   <pre>form = {{artObject | json}}</pre> -->
-  <!-- <pre>master = {{master | json}}</pre> -->
 </div>
-<section>
-  <header id="header" class="">
-    <h1>All da arts</h1>
-  </header><!-- /header -->
-
-  <article ng-repeat="item in cooperHewittController.artObjects">
-    <h2>{{item.id}}</h2>
-    <p>{{item.description}}</p>
-<!--     <h2>{{item.images[0].b.url}}</h2> -->
-    <img src="{{item.images[0].sq.url}}" alt="Missing IMG">
-    <!-- <img src="https://images.collection.cooperhewitt.org/46660_bc1ecb1628392915_b.jpg"></img> -->
-    <!-- <p>{{artObject.url}}</p> -->
-
-
-  </article>
-</section>
