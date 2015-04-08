@@ -8,29 +8,9 @@ function cooperHewittController(CooperHewittFactory, $scope){
   vm.artObjects = CooperHewittFactory.artObjects;
 
   $scope.search = function(searchParams){
-    debugger;
+    // debugger;
     console.log(searchParams);
     console.log('lets search')
     CooperHewittFactory.searchObjects(searchParams);
-    // CooperHewittFactory.getRandomObject();
   };
 }
-
-
-
-// <script>
-//   angular.module('formExample', [])
-//     .controller('ExampleController', ['$scope', function($scope) {
-//       $scope.master = {};
-
-//       $scope.update = function(user) {
-//         $scope.master = angular.copy(user);
-//       };
-
-//       $scope.reset = function() {
-//         $scope.user = angular.copy($scope.master);
-//       };
-
-//       $scope.reset();
-//     }]);
-// </script>

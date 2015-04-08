@@ -1,21 +1,27 @@
 'use strict';
 angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window', 'CooperHewittUrl', function($http, $window, CooperHewittUrl){
   var artObjects = [];
+  var urlParams;
 
   var _parseSearch = function(params){
-    debugger;
-    params.medium;
+    return params.medium;
   };
+
+  var _parseResponse = function(responseArray){
+    // debugger;
+    artObjects = [];
+    responseArray.objects.forEach(function(object){
+      artObjects.push(object);
+    });
+  }
 
   var searchObjects = function(params){
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
-    var urlParams = _parseSearch(params);
-    debugger;
-    return $http.get(CooperHewittUrl+'/?method=cooperhewitt.search.objects&access_token=6dca68aa58d9a8454ff2fd25ada517aa&medium='+urlParams+'&page=1&per_page=100').success(function(response){
-      // debugger;
-      // angular.copy(response, artObjects);
-      artObjects.push(response);
-      console.log('Success:', response, data, status);
+    urlParams = _parseSearch(params);
+    return $http.get(CooperHewittUrl+'/?method=cooperhewitt.search.objects&access_token=bed285fe62e08707962a655f145ab02b&medium='+urlParams+'&page=1&per_page=100').success(function(response){
+      debugger;
+      _parseResponse(response);
+      console.log(urlParams, response, data, status);
     }).error(function(data,status,config){
       console.log('Youre doing it wrong:',data,status,config);
     });

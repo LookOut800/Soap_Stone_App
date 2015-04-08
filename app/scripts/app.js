@@ -32,7 +32,7 @@ angular.module('soapStoneApp', [
       $location.path('/login');
     } else {
       PostsFactory.getPosts();
-      CooperHewittFactory.getRandomObject();
+      // CooperHewittFactory.getRandomObject();
     }
   });
 });
