@@ -28,7 +28,7 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
     var params = {
         artObject: artObject
     };
-
+    debugger;
     if (artObject.id) {
         return $http.put(ServerUrl + '/artObjects/' + artObject.id, params)
           .then(getArtObejcts);

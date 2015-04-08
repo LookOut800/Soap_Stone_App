@@ -31,7 +31,7 @@ angular.module('soapStoneApp', [
     if(!AuthFactory.isAuthenticated()){
       $location.path('/login');
     } else {
-      PostsFactory.getPosts();
+      // PostsFactory.getPosts();
       // CooperHewittFactory.getRandomObject();
     }
   });

@@ -1,7 +1,22 @@
 'use strict';
 angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window', 'CooperHewittUrl', 'CooperApiAccess', function($http, $window, CooperHewittUrl, CooperApiAccess){
   var artObjects = [];
+  var artObject = {};
   var urlParams;
+
+  // var getArtObjectById = function(params){
+
+  //   return $http.get(CooperHewittUrl+'cooperhewitt.objects.getInfo&access_token='+CooperApiAccess+).success(function(response){
+  //     artObjects.push(response);
+  //     console.log('Random Thing:', response, status);
+  //   }).error(function(status){
+  //     console.log('Youre doing it wrong:', status);
+  //   });
+  // };
+  var addObjectToRails = function(params){
+    artObject = {};
+
+  };
 
   var searchObjects = function(params){
     // var data = JSON.parse($window.localStorage.getItem('ss-user'));
@@ -53,3 +68,7 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
 
 //GET SEARCH
 //curl -X GET 'https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=6dca68aa58d9a8454ff2fd25ada517aa&medium=Lacquered wood&page=1&per_page=100'
+
+
+// GET OBJECT
+// curl -X GET 'https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=<TOKEN>&object_id=<OBJECT_ID> &id=<ID> &accession_number=<ACCESSION_NUMBER> &extras=<EXTRAS>'

@@ -1,22 +1,26 @@
 'use strict';
 angular.module('MainController').controller('CooperHewittController', cooperHewittController);
 
-cooperHewittController.$inject = ['CooperHewittFactory', '$scope'];
+cooperHewittController.$inject = ['CooperHewittFactory', 'ArtObjectFactory', '$scope'];
 
-function cooperHewittController(CooperHewittFactory, $scope){
+function cooperHewittController(CooperHewittFactory, ArtObjectFactory, $scope){
   var vm = this;
   vm.artObjects = CooperHewittFactory.artObjects;
   $scope.artObject = {
-    period:"",
-    color:"",
-    medium:""
+    period:'',
+    color:'',
+    medium:''
   };
 
   $scope.search = function(searchParams){
-    // debugger;
-    console.log(searchParams);
-    console.log('lets search');
+    console.log('lets search:', searchParams);
     CooperHewittFactory.searchObjects(searchParams);
+  };
+
+  vm.saveItem = function(objectParams){
+    console.log('grabbing item:', objectParams);
+    debugger;
+    ArtObjectFactory.upsertArtObject(objectParams);
   };
 }
 
