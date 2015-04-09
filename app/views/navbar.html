@@ -4,6 +4,7 @@
     <li ng-if="!navbarController.isLoggedin()"><a ng-href="#/login" title="">Login</a></li>
     <li ng-if="navbarController.isLoggedin()"><a href="javascript:void(0)" ng-click="navbarController.logout()">Logout</a></li>
     <li ng-if="navbarController.isLoggedin()"><a href="javascript:void(0)" >Some other text if authed</a></li>
-    <li ng-if="navbarController.isLoggedin()"><a ng-href="#/posts" title="">Posts</a></li>
+    <li ng-if="navbarController.isLoggedin()"><a ng-href="#/posts" title="">My Posts</a></li>
+    <li nf-if="navbarController.isLoggedin()"><a ng-href="#/timelines">My Timelines</a></li>
   </ul>
 </nav>

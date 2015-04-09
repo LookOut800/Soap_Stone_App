@@ -9,7 +9,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var getTimelines = function(){
-    return $http.get(ServerUrl + '/users/' + user.id + '/timeslines')
+    return $http.get(ServerUrl + '/users/' + user.id + '/timelines')
       .then(function(response){
         angular.copy(response.data, timelines);
       });
@@ -18,15 +18,16 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   var newTimeline = function(timeline){
     var params = {
       timeline: timeline
-    }
-    return $http.post(ServerUrl + '/users/' + user.id + '/timeslines', params)
+    };
+
+    return $http.post(ServerUrl + '/users/' + user.id + '/timelines', params)
       .then(function(response){
-        timeslines.push(response.data);
+        timelines.push(response.data);
       });
   };
 
-  var deleteTimeline = function()(timeline) {
-        return $http.delete(ServerUrl + '/users/' + user.id + '/timeslines' + timeline.id)
+  var deleteTimeline = function(timeline) {
+        return $http.delete(ServerUrl + '/users/' + user.id + '/timelines' + timeline.id)
             .then(function(response) {
                 timelines.splice(_findTimelineIndexById(timeline.id), 1);
             });
@@ -42,7 +43,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
 
   return {
     timeline: timeline,
-    timeslines: timeslines,
+    timelines: timelines,
     getTimelines: getTimelines,
     newTimeline: newTimeline,
     deleteTimeline: deleteTimeline,
@@ -50,5 +51,5 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
 }]);
 
 // JSON.parse(localStorage.getItem('cmt-user')).id
-// users/user.id/timeslines/timeline.id/art_objects
+// users/user.id/timelines/timeline.id/art_objects
 // wdi-bos-06-current-students
