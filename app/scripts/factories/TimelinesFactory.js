@@ -30,7 +30,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
             .then(function(response) {
                 timelines.splice(_findTimelineIndexById(timeline.id), 1);
             });
-    }
+    };
 
   var _findTimelineIndexById = function(id) {
         for (var i = 0; i < timelines.length; i++) {
@@ -38,7 +38,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
                 return i;
             }
         }
-    }
+    };
 
   return {
     timeline: timeline,
