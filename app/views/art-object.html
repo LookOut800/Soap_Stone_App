@@ -1,51 +1,12 @@
 <section>
   <header id="header" class="">
     <h1>All da arts</h1>
-  </header><!-- /header -->
+  </header>
 
   <article ng-repeat="item in cooperHewittController.artObjects | limitTo:10">
-
     <h3>{{item.id}}</h3>
     <p>{{item.description}}</p>
-    <img src="{{item.images[0].sq.url}}" alt="Missing IMG" ng-click="cooperHewittController.saveItem({{item}})">
-
-    <button type="save" class="btn btn-default" ng-model="cooperHewittController.artObject.id" ng-click="cooperHewittController.saveItem()">Save</button>
-    <!-- <a> -->
-    <!-- <button ng-click='add to rails'>add to your user</button> -->
-
+    <img src="{{item.images[0].sq.url}}" alt="Missing IMG" ng-click="cooperHewittController.saveItem(item)">
   </article>
 </section>
 
-  <!-- <form role="form" name="upsertArtObjectForm" ng-submit="artObjectController.upsertArtObject(artObjectController.artObject)" ng-controller="ArtObjectController as artObjectController"> -->
-  <!-- </form> -->
-<!-- ng-model="artObjectController.artObject" -->
-<!-- <div class="container" ng-controller="ContentCtrl as contentCtrl">
-    <div class="col-md-6">
-        <h2>Tasks List</h2>
-
-        <ga-task-list tasks="contentCtrl.tasks"></ga-task-list>
-    </div>
-
-    <div class="col-md-6">
-        <form role="form" name="upsertTaskForm" ng-submit="taskFormCtrl.upsertTask(taskFormCtrl.task)" novalidate ng-controller="TaskFormCtrl as taskFormCtrl">
-
-            <h2 ng-if="!taskFormCtrl.task.id">Create Task</h2>
-            <h2 ng-if="taskFormCtrl.task.id">Update Task</h2>
-
-            <div class="alert alert-danger alert-dismissible" role="alert" ng-show="taskFormCtrl.serverErrors">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{ taskFormCtrl.serverErrorMsg }}
-            </div>
-
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" ng-model="taskFormCtrl.task.name">
-            </div>
-
-            <button type="submit" class="btn btn-primary" ng-disabled="upsertTaskForm.$invalid">Submit</button>
-
-            <button type="reset" class="btn btn-default" ng-click="taskFormCtrl.cancel()">Cancel</button>
-        </form>
-    </div>
-</div>
- -->

@@ -25,31 +25,23 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
   };
 
   var upsertArtObject = function(artObject){
- //     id: 1,
- // period: nil,
- // color: nil,
- // feature_image: nil,
- // thumbnail: nil,
- // medium: nil,
- // title: "first obejct",
- // description: nil,
- // timeline_id: nil,
- // created_at: Wed, 08 Apr 2015 22:03:49 UTC +00:00,
- // updated_at: Wed, 08 Apr 2015 22:03:49 UTC +00:00>
     debugger;
     var params = {
         art_object: {
-          // date: artObject.date,
+          date: artObject.date,
           medium: artObject.medium,
           title: artObject.title,
-          description: artObject.description
+          object_type: artObject.type,
+          object_id: artObject.id,
+          description: artObject.description,
+          thumbnail: artObject.images[0].n.url,
+          feature_image: artObject.images[0].b.url
         }
     };
 
-
     return $http.post(ServerUrl + '/art_objects', params)
       .then(function(response){
-          // artObjects.push(response.data);
+          artObjects.push(response.data);
       });
   };
 
