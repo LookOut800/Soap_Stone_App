@@ -30,7 +30,7 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
 
   var _storeSession = function(data) {
     $window.localStorage.setItem('ss-user', JSON.stringify(data));
-    $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
+    // $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
 
   /*

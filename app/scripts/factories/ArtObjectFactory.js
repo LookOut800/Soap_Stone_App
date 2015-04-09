@@ -39,10 +39,12 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
         }
     };
 
-    return $http.post(ServerUrl + '/art_objects', params)
-      .then(function(response){
-          artObjects.push(response.data);
-      });
+    return $http.post(ServerUrl + '/art_objects', params).success(function(response){
+      artObjects.push(response);
+      console.log('Successful Post:', response, status);
+    }).error(function(status){
+      console.log('Youre doing it wrong:', status);
+    });
   };
 
   // var deleteArtObject = function(artObject){
