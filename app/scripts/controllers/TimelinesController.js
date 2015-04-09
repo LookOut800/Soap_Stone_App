@@ -13,6 +13,7 @@ function timelinesController(TimelinesFactory, $scope){
 
   $scope.$on('$viewContentLoaded', function(){
     TimelinesFactory.getTimelines();
+    console.log('gotTimelines on load');
   });
 
   $scope.getTimelines = function(){
