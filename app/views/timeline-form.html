@@ -1,0 +1,8 @@
+<div ng-controller="TimelineController">
+  <form novalidate class="timeline-form" name="timelineForm">
+    title: <input type="text" ng-model="timeline.title" /><br/>
+    description: <input type="text" ng-model="timeline.description" /><br/>
+ <!--    Medium: <input type="text" ng-model="timeline.medium" /> -->
+    <input type="submit" ng-click="search(timeline)" value="Search!" />
+  </form>
+</div>

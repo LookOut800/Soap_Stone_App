@@ -1,0 +1,12 @@
+<section>
+  <header id="header" class="timeline">
+    <h1>All Your Timelines</h1>
+  </header><!-- /header -->
+
+  <article ng-repeat="timeline in timeslinesController.timelines">
+    <h3>{{timeline.title}}</h3>
+    <p>{{timeline.description}}</p>
+  </article>
+</section>
+
+
