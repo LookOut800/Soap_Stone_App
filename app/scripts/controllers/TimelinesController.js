@@ -31,8 +31,10 @@ function timelinesController(TimelinesFactory, $scope){
       });
   };
 
-  vm.activateTimeline = function(){
+  vm.activateTimeline = function(timeline){
     debugger;
+    TimelinesFactory.activateTimeline(timeline);
+    console.log('Activated:', timeline);
   };
 
   vm.cancel = function() {
@@ -45,7 +47,7 @@ function timelinesController(TimelinesFactory, $scope){
           errString += key + ': ' + value;
       });
       return errString;
-  }
+  };
 
   vm.resetForm = function() {
       TimelinesFactory.setTimeline({title: '', description: ''});

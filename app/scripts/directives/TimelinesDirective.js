@@ -1,8 +1,8 @@
 'use strict';
-angular.module('MainDirective').directive('timelineForm', [function(){
+angular.module('MainDirective').directive('ssTimelines', [function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/timeline-form.html',
+      templateUrl: 'views/timeline.html',
       controller: 'TimelinesController',
       controllerAs: 'timelinesController',
       bindToController: true,
@@ -11,15 +11,3 @@ angular.module('MainDirective').directive('timelineForm', [function(){
       }
     };
   }]);
-  // .directive('timelines', [function(){
-  //   return {
-  //     restrict: 'E',
-  //     templateUrl: 'views/timelines',
-  //     controller: 'TimelinesController',
-  //     controllerAs: 'timelinesController',
-  //     bindToController: true,
-  //     scope: {
-  //       credentials: '='
-  //     }
-  //   };
-  // }]);
