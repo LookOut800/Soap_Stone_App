@@ -4,24 +4,11 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
   var artObject = {};
   var urlParams;
 
-  // var getArtObjectById = function(params){
-
-  //   return $http.get(CooperHewittUrl+'cooperhewitt.objects.getInfo&access_token='+CooperApiAccess+).success(function(response){
-  //     artObjects.push(response);
-  //     console.log('Random Thing:', response, status);
-  //   }).error(function(status){
-  //     console.log('Youre doing it wrong:', status);
-  //   });
-  // };
-  var addObjectToRails = function(params){
-    artObject = {};
-
-  };
-
   var searchObjects = function(params){
+    // artObjects = [];
     // var data = JSON.parse($window.localStorage.getItem('ss-user'));
     urlParams = _parseSearch(params);
-    return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+urlParams+'&page=1&per_page=100').success(function(response){
+    return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+urlParams+'&has_image=YES&page=1&per_page=100').success(function(response){
       _parseResponse(response);
       console.log(urlParams, response, status);
     }).error(function(status){
@@ -34,6 +21,7 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
   };
 
   var _parseResponse = function(responseArray){
+    // artObjects = [];
     responseArray.objects.forEach(function(object){
       artObjects.push(object);
     });
@@ -48,6 +36,19 @@ angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window
       console.log('Youre doing it wrong:', status);
     });
   };
+
+  // var getArtObjectById = function(params){
+  //   return $http.get(CooperHewittUrl+'cooperhewitt.objects.getInfo&access_token='+CooperApiAccess+).success(function(response){
+  //     artObjects.push(response);
+  //     console.log('Random Thing:', response, status);
+  //   }).error(function(status){
+  //     console.log('Youre doing it wrong:', status);
+  //   });
+  // };
+  // var addObjectToRails = function(params){
+  //   artObject = {};
+
+  // };
 
   return{
     searchObjects: searchObjects,

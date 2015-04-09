@@ -2,11 +2,15 @@
   <header id="header" class="">
     <h1>All da arts</h1>
   </header>
-
-  <article ng-repeat="item in cooperHewittController.artObjects | limitTo:10">
-    <h3>{{item.id}}</h3>
+  <article ng-repeat="item in cooperHewittController.artObjects | limitTo:15">
+    <h3>{{item.title}}</h3>
     <p>{{item.description}}</p>
+    <p>{{item.period}}</p>
+    <p>{{item.color}}</p>
+    <p>{{item.medium}}</p>
+    <p>{{item.type}}</p>
     <img src="{{item.images[0].sq.url}}" alt="Missing IMG" ng-click="cooperHewittController.saveItem(item)">
+
   </article>
 </section>
 

@@ -7,9 +7,11 @@ function cooperHewittController(CooperHewittFactory, ArtObjectFactory, $scope){
   var vm = this;
   vm.artObjects = CooperHewittFactory.artObjects;
   $scope.artObject = {
+    title: '',
     period:'',
     color:'',
-    medium:''
+    medium:'',
+    type: ''
   };
 
   $scope.search = function(searchParams){

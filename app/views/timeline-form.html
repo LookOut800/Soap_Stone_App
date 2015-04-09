@@ -1,9 +1,32 @@
-<div ng-controller="TimelineController">
-  <h1>Timline-Form</h1>
-  <form novalidate class="timeline-form" name="timelineForm">
-    title: <input type="text" ng-model="timeline.title" /><br/>
-    description: <input type="text" ng-model="timeline.description" /><br/>
- <!--    Medium: <input type="text" ng-model="timeline.medium" /> -->
-    <input type="submit" ng-click="search(timeline)" value="Search!" />
-  </form>
+<div class="container">
+    <div class="">
+        <h2>Timeline List</h2>
+
+        <ul ng-controller="TimelinesController as timelinesController">
+            <li ng-repeat="timeline in timelinesController.timelines">{{ timeline.title }} <a ng-click="timelinesController.editTimeline(timeline)">update</a> <a ng-click="timelinesController.deleteTimeline(timeline)">delete</a></li>
+        </ul>
+    </div>
+
+    <div class="">
+        <form role="form" name="upsertTimeline" ng-submit="timelinesController.upsertTimeline(timelinesController.timeline)" novalidate ng-controller="TimelinesController as timelinesController">
+
+            <h2 ng-if="!timelinesController.timeline.id">Create Timeline</h2>
+            <h2 ng-if="timelinesController.timeline.id">Update Timeline</h2>
+
+            <div class="alert alert-danger alert-dismissible" role="alert" ng-show="timelinesController.serverErrors">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{ timelinesController.serverErrorMsg }}
+            </div>
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" ng-model="timelinesController.timeline.title">
+                <label>Description</label>
+                <input type="text" class="form-control" ng-model="timelinesController.timeline.description">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default" ng-click="timelinesController.cancel()">Cancel</button>
+        </form>
+    </div>
 </div>

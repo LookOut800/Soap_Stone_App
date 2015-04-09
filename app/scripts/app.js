@@ -35,5 +35,7 @@ angular.module('soapStoneApp', [
       // CooperHewittFactory.getRandomObject();
     }
   });
+
+
 });
 

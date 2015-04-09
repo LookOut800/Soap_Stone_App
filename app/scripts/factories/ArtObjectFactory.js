@@ -24,7 +24,7 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
   };
 
   var upsertArtObject = function(artObject){
-    var timeline = JSON.parse($window.localStorage.getItem('timeline.id'));
+    // var timeline = JSON.parse($window.localStorage.getItem('timeline.id'));
     var params = {
         art_object: {
           date: artObject.date,

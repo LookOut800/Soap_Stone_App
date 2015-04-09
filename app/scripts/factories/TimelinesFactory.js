@@ -4,18 +4,24 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   var timeline = {};
   var user = JSON.parse(localStorage.getItem('ss-user'));
 
-  var setTimeline = function(){
+  var setTimeline = function(newTimeline){
     angular.copy(newTimeline, timeline);
   };
 
   var getTimelines = function(){
+    // debugger;
     return $http.get(ServerUrl + '/users/' + user.id + '/timelines')
       .then(function(response){
         angular.copy(response.data, timelines);
       });
   };
 
-  var newTimeline = function(timeline){
+  var activateTimeline = function(){
+    debugger;
+  };
+
+  var upsertTimeline = function(timeline){
+    debugger;
     var params = {
       timeline: timeline
     };
@@ -44,8 +50,9 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   return {
     timeline: timeline,
     timelines: timelines,
+    setTimeline: setTimeline,
     getTimelines: getTimelines,
-    newTimeline: newTimeline,
+    upsertTimeline: upsertTimeline,
     deleteTimeline: deleteTimeline,
   };
 }]);

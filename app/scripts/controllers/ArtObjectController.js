@@ -31,7 +31,7 @@ function artObjectController(ArtObjectFactory){
   }
 
   function resetForm() {
-      ArtObjectFactory.setArtObject({name: '', period: '', medium: ''});
+      ArtObjectFactory.setArtObject({name: '', period: '', medium: '', type: ''});
 
       vm.serverErrors = false;
   }

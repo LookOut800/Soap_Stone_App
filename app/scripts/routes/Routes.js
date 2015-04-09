@@ -8,9 +8,9 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
     .when('/login', {
       templateUrl: 'views/login.html'
     })
-    .when('/search', {
-      templateUrl: 'views/search.html'
-    })
+    // .when('/search', {
+    //   templateUrl: 'views/search.html'
+    // })
     .when('/posts', {
       templateUrl: 'views/posts.html',
       controller: 'PostsController',

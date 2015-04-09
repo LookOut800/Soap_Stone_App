@@ -1,26 +1,45 @@
 'use strict';
 angular.module('MainController').controller('TimelinesController', timelinesController);
 
-timelinesController.$inject = ['TimelinesFactory'];
+timelinesController.$inject = ['TimelinesFactory', '$scope'];
 
-function timelinesController(TimelinesFactory){
+function timelinesController(TimelinesFactory, $scope){
   var vm = this;
   vm.timelines = TimelinesFactory.timelines;
+  $scope.timeline = {
+    title: '',
+    description: ''
+  };
 
-  vm.newTimeline = function(timeline) {
-      TimelinesFactory.newTimeline(timeline).then(function() {
+  $scope.$on('$viewContentLoaded', function(){
+    TimelinesFactory.getTimelines();
+  });
+
+  $scope.getTimelines = function(){
+    console.log('lets get your timelines');
+    TimelinesFactory.getTimelines();
+  };
+
+  vm.upsertTimeline = function(timeline) {
+    debugger;
+      TimelinesFactory.upsertTimeline(timeline).then(function() {
           resetForm();
       }, function(response) {
-          vm.serverErrors = true;
-          vm.serverErrorMsg = handleErrors(response.data);
+        debugger;
+          // vm.serverErrors = true;
+          // vm.serverErrorMsg = handleErrors(response.data);
       });
+  };
+
+  vm.activateTimeline = function(){
+    debugger;
   };
 
   vm.cancel = function() {
       resetForm();
   };
 
-  function handleErrors(errObj) {
+  vm.handleErrors = function(errObj) {
       var errString = '';
       angular.forEach(errObj, function(value, key) {
           errString += key + ': ' + value;
@@ -28,9 +47,8 @@ function timelinesController(TimelinesFactory){
       return errString;
   }
 
-  function resetForm() {
+  vm.resetForm = function() {
       TimelinesFactory.setTimeline({title: '', description: ''});
       vm.serverErrors = false;
-  }
-  resetForm();
+  };
 }
