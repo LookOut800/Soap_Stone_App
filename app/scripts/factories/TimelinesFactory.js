@@ -9,7 +9,6 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var getTimelines = function(){
-    // debugger;
     return $http.get(ServerUrl + '/users/' + user.id + '/timelines')
       .then(function(response){
         angular.copy(response.data, timelines);
@@ -17,22 +16,19 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var activateTimeline = function(activeTimeline){
-    debugger;
-    // timeline = {};
     $window.localStorage.setItem('ss-user-timeline', activeTimeline.id);
     // timeline = activeTimeline;
   };
 
   var upsertTimeline = function(timeline){
-    timeline['user_id'] = user.id
+    timeline['user_id'] = user.id;
     var params = {
       timeline: timeline
     };
-    return $http.post(ServerUrl + '/timelines', params)
+    return $http.post(ServerUrl + '/timelines', params);
   };
 
   var deleteTimeline = function(timeline) {
-    debugger;
         return $http.delete(ServerUrl + '/users/' + user.id + '/timelines/' + timeline.id)
             .then(function(response) {
                 timelines.splice(_findTimelineIndexById(timeline.id), 1);

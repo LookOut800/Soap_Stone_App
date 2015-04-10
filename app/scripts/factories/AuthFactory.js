@@ -25,21 +25,12 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
   };
 
   var clearStorage = function(){
-
   };
 
   var _storeSession = function(data) {
     $window.localStorage.setItem('ss-user', JSON.stringify(data));
     // $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
   };
-
-  /*
-  data = {
-    id: 1
-    username: "..."
-    token: .....
-  }
-  */
 
   return{
     login:login,

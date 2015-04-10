@@ -1,11 +1,21 @@
 'use strict';
 angular.module('MainController').controller('ArtObjectController', artObjectController);
 
-artObjectController.$inject = ['ArtObjectFactory'];
+artObjectController.$inject = ['ArtObjectFactory', '$scope'];
 
-function artObjectController(ArtObjectFactory){
+function artObjectController(ArtObjectFactory, $scope){
   var vm = this;
   vm.artObjects = ArtObjectFactory.artObjects;
+
+  $scope.$on('$viewContentLoaded', function(){
+    console.log('lets get your art objects');
+    ArtObjectFactory.getArtObejcts();
+  });
+
+  vm.getArtObejcts = function(){
+    console.log('lets get your art objects');
+    ArtObjectFactory.getArtObejcts();
+  };
 
   vm.upsertArtObject = function(artObject) {
       ArtObjectFactory.upsertArtObject(artObject).then(function() {
@@ -35,6 +45,4 @@ function artObjectController(ArtObjectFactory){
 
       vm.serverErrors = false;
   }
-
-  resetForm();
 }

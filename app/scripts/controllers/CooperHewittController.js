@@ -21,16 +21,6 @@ function cooperHewittController(CooperHewittFactory, ArtObjectFactory, $scope){
 
   vm.saveItem = function(objectParams){
     console.log('grabbing item:', objectParams);
-    debugger;
     ArtObjectFactory.upsertArtObject(objectParams);
   };
 }
-
-
-
-// angular.module("MyModule", []).controller('MyCtrl', ['$scope', function ($scope) {
-//     $scope.myModel = {name:""};
-// }]);
-// In your HTML
-
-// <input type="text" ng-model="myModel.name"/>

@@ -31,7 +31,7 @@ angular.module('soapStoneApp', [
     if(!AuthFactory.isAuthenticated()){
       $location.path('/login');
     } else {
-        TimelinesFactory.getTimelines();
+      TimelinesFactory.getTimelines();
     }
   });
 });

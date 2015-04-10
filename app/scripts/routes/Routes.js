@@ -8,9 +8,6 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
     .when('/login', {
       templateUrl: 'views/login.html'
     })
-    // .when('/search', {
-    //   templateUrl: 'views/search.html'
-    // })
     .when('/posts', {
       templateUrl: 'views/posts.html',
       controller: 'PostsController',
@@ -25,6 +22,11 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
       templateUrl: 'views/timeline.html',
       controller: 'TimelinesController',
       controllerAs: 'timelinesController'
+    })
+    .when('/timeline-show', {
+      templateUrl: 'views/timeline-show.html',
+      controller: 'ArtObjectController',
+      controllerAs: 'artObjectController'
     })
     .otherwise({
       redirectTo: '/'

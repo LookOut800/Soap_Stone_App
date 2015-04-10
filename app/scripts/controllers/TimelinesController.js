@@ -31,7 +31,6 @@ function timelinesController(TimelinesFactory, $scope){
   };
 
   vm.activateTimeline = function(timeline){
-    debugger;
     TimelinesFactory.activateTimeline(timeline);
     console.log('Activated:', timeline);
   };

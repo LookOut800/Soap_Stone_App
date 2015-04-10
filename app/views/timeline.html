@@ -1,32 +1,32 @@
-<section>
-  <header id="header" class="timeline">
+<section class="">
+<header id="header" class="timeline">
 
-    <div class="">
-        <form role="form" name="upsertTimeline" ng-submit="timelinesController.upsertTimeline(timelinesController.timeline)" novalidate ng-controller="TimelinesController as timelinesController">
+<active-timelines></active-timelines>
+  <div class="">
+    <form role="form" name="upsertTimeline" ng-submit="timelinesController.upsertTimeline(timelinesController.timeline)" novalidate ng-controller="TimelinesController as timelinesController">
 
-            <h2 ng-if="!timelinesController.timeline.id">Create Timeline</h2>
-            <h2 ng-if="timelinesController.timeline.id">Update Timeline</h2>
+      <h2 ng-if="!timelinesController.timeline.id">Create Timeline</h2>
+      <h2 ng-if="timelinesController.timeline.id">Update Timeline</h2>
 
-            <div class="alert alert-danger alert-dismissible" role="alert" ng-show="timelinesController.serverErrors">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{ timelinesController.serverErrorMsg }}
-            </div>
+      <div class="alert alert-danger alert-dismissible" role="alert" ng-show="timelinesController.serverErrors">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ timelinesController.serverErrorMsg }}
+      </div>
 
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" ng-model="timelinesController.timeline.title">
-                <label>Description</label>
-                <input type="text" class="form-control" ng-model="timelinesController.timeline.description">
-            </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="timelinesController.timeline.title">
+        <label>Description</label>
+        <input type="text" class="form-control" ng-model="timelinesController.timeline.description">
+      </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-default" ng-click="timelinesController.cancel()">Cancel</button>
-        </form>
-    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-default" ng-click="timelinesController.cancel()">Cancel</button>
+    </form>
+  </div>
 </div>
-  </header>
+</header>
 
-      <h1>All Your Timelines</h1>
-    <active-timelines></active-timelines>
+
 
 </section>

@@ -1,4 +1,9 @@
 // bower:scss
+@import "partials/nav";
+@import "partials/main-view";
+
+
+
 // endbower
 
 .browsehappy {
@@ -10,6 +15,7 @@
 
 body {
   padding: 0;
+  background-color: #f7f7f7;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

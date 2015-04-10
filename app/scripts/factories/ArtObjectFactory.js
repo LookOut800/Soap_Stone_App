@@ -2,24 +2,19 @@
 angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 'ServerUrl', function($http, $window, ServerUrl){
   var artObjects = [];
   var artObject = {};
-
   // var setArtObject = function(){
   //   angular.copy(newArtObject, artObject);
   // };
 
   var getArtObejcts = function(){
-    var data = JSON.parse($window.localStorage.getItem('ss-user'));
-    var config = {
-      headers: {
-        'AUTHORZATION': 'Token token=' + data.token
-      }
-    };
+    var user = JSON.parse($window.localStorage.getItem('ss-user'));
+    var timeline_id = JSON.parse($window.localStorage.getItem('ss-user-timeline'));
 
-  return $http.get(ServerUrl+'/artObjects').success(function(response){
+  return $http.get(ServerUrl+ '/users/'+ user.id +'/timelines/'+ timeline_id +'/art_objects').success(function(response){
       angular.copy(response, artObjects);
 
-    }).error(function(data,status,headers,config){
-      console.log('Youre doing it wrong:',data,status,headers,config);
+    }).error(function(user,status){
+      console.log('Youre doing it wrong:',user,status);
     });
   };
 
@@ -68,8 +63,8 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
     artObject: artObject,
     artObjects: artObjects,
     // setArtObject: setArtObject,
-    // getArtObejcts: getArtObejcts,
-    upsertArtObject: upsertArtObject,
+    getArtObejcts: getArtObejcts,
+    upsertArtObject: upsertArtObject
     // deleteArtObject: deleteArtObject
   };
 }]);
