@@ -24,7 +24,8 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
   };
 
   var upsertArtObject = function(artObject){
-    // var timeline = JSON.parse($window.localStorage.getItem('timeline.id'));
+    var user = JSON.parse($window.localStorage.getItem('ss-user'));
+    var timeline_id = JSON.parse($window.localStorage.getItem('ss-user-timeline'));
     var params = {
         art_object: {
           date: artObject.date,
@@ -38,7 +39,7 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
         }
     };
 
-    return $http.post(ServerUrl + '/timelines/' + timeline.id + '/art_objects', params).success(function(response){
+    return $http.post(ServerUrl + '/users/' + user.id + '/timelines/' + timeline_id + '/art_objects', params).success(function(response){
       artObjects.push(response);
       console.log('Successful Post:', response, status);
     }).error(function(status){
