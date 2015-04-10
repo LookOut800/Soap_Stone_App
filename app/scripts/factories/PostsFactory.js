@@ -11,7 +11,6 @@ angular.module('soapStoneApp').factory('PostsFactory', ['$http', '$window', 'Ser
     };
 
   return $http.get(ServerUrl+'/posts').success(function(response){
-      // debugger;
       angular.copy(response, posts);
 
     }).error(function(data,status,headers,config){

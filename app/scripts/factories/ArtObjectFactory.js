@@ -35,11 +35,12 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
           object_id: artObject.id,
           description: artObject.description,
           thumbnail: artObject.images[0].n.url,
-          feature_image: artObject.images[0].b.url
+          feature_image: artObject.images[0].b.url,
+          timeline_id: timeline_id
         }
     };
 
-    return $http.post(ServerUrl + '/users/' + user.id + '/timelines/' + timeline_id + '/art_objects', params).success(function(response){
+    return $http.post(ServerUrl + '/art_objects', params).success(function(response){
       artObjects.push(response);
       console.log('Successful Post:', response, status);
     }).error(function(status){

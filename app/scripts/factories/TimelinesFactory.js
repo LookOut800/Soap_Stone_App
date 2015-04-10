@@ -24,20 +24,16 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var upsertTimeline = function(timeline){
-    debugger;
+    timeline['user_id'] = user.id
     var params = {
       timeline: timeline
     };
-
-    return $http.post(ServerUrl + '/users/' + user.id + '/timelines', params)
-      .then(function(response){
-        timelines.push(response.data);
-      });
+    return $http.post(ServerUrl + '/timelines', params)
   };
 
   var deleteTimeline = function(timeline) {
     debugger;
-        return $http.delete(ServerUrl + '/users/' + user.id + '/timelines' + timeline.id)
+        return $http.delete(ServerUrl + '/users/' + user.id + '/timelines/' + timeline.id)
             .then(function(response) {
                 timelines.splice(_findTimelineIndexById(timeline.id), 1);
             });

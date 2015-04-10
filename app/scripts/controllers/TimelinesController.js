@@ -22,11 +22,9 @@ function timelinesController(TimelinesFactory, $scope){
   };
 
   vm.upsertTimeline = function(timeline) {
-    debugger;
       TimelinesFactory.upsertTimeline(timeline).then(function() {
           resetForm();
       }, function(response) {
-        debugger;
           // vm.serverErrors = true;
           // vm.serverErrorMsg = handleErrors(response.data);
       });
