@@ -1,9 +1,6 @@
-<div class="">
-<div class="">
-  <h4>Timeline List</h4>
-  <ul ng-controller="TimelinesController as timelinesController">
-    <li ng-repeat="timeline in timelinesController.timelines"><a ng-click="timelinesController.activateTimeline(timeline)" href="#/timeline-show">{{ timeline.title }}<a>
-    </li>
-  </ul>
-</div>
-</div>
+<h4>Timeline List</h4>
+<ul ng-controller="TimelinesController as timelinesController">
+  <li ng-repeat="timeline in timelinesController.timelines"><a ng-click="timelinesController.activateTimeline(timeline)" href="#/timeline-show">{{ timeline.title }}<a>
+  <a ng-click="timelinesController.deleteTimeline(timeline)">delete</a>
+  </li>
+</ul>

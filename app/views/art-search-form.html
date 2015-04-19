@@ -1,11 +1,13 @@
-<h1>Object Search</h1>
+
 <div ng-controller="CooperHewittController">
-  <form novalidate class="art-form" name="artForm">
-  Title: <input type="text" ng-model="artObject.title" /><br/>
-    Period: <input type="text" ng-model="artObject.period" /><br/>
-    Color: <input type="text" ng-model="artObject.color" /><br/>
-    Medium: <input type="text" ng-model="artObject.medium" /><br/>
-    Type: <input type="text" ng-model="artObject.type" /><br/>
-    <input type="submit" ng-click="search(artObject) ; $('results').empty()" value="Search!" />
-  </form>
+  <form novalidate class="form art-form" name="artForm">
+  <h1>Object Search</h1>
+  <label>Title:</label> <input type="text" ng-model="artObject.title" /><br/>
+    <label>Period:</label> <input type="text" ng-model="artObject.period" /><br/>
+    <label>Color:</label> <input type="text" ng-model="artObject.color" /><br/>
+    <label>Medium:</label> <input type="text" ng-model="artObject.medium" /><br/>
+    <label>Type:</label> <input type="text" ng-model="artObject.type" /><br/>
+    <a ng-href="#/object-search" ng-click="search(artObject)">Search!</a>
+<!--     <input type="submit" ng-click="search(artObject) ; $('results').empty()" value="Search!" />
+ -->  </form>
 </div>

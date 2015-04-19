@@ -29,11 +29,13 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var deleteTimeline = function(timeline) {
-        return $http.delete(ServerUrl + '/users/' + user.id + '/timelines/' + timeline.id)
-            .then(function(response) {
-                timelines.splice(_findTimelineIndexById(timeline.id), 1);
-            });
-    };
+    debugger;
+    return $http.delete(ServerUrl + '/timelines/' + timeline.id)
+    .then(console.log('Deleted:', timeline));
+    // .then(function(response) {
+    //     timelines.splice(_findTimelineIndexById(timeline.id), 1);
+    // });
+  };
 
   var _findTimelineIndexById = function(id) {
         for (var i = 0; i < timelines.length; i++) {

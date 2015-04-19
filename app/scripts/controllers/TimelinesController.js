@@ -35,6 +35,11 @@ function timelinesController(TimelinesFactory, $scope){
     console.log('Activated:', timeline);
   };
 
+  vm.deleteTimeline = function(timeline){
+    debugger;
+    TimelinesFactory.deleteTimeline(timeline);
+  };
+
   vm.cancel = function() {
       resetForm();
   };

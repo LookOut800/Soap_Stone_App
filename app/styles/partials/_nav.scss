@@ -1,61 +1,56 @@
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 14rem;
-  text-align: left;
-  background-color: rgba(155, 145, 145, 0.49);
-  // background: linear-gradient(to bottom, gray, white);
-  header {
-    font-family: "PT Sans", Helvetica, Arial, sans-serif;
-    color: rgb(230, 230, 230);
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1;
-  }
-  ul {
-    list-style: none;
-    li {
-      text-decoration: none;
-      color: darkblue;
+// nav {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   min-width: 20rem;
+//   max-width: 25rem;
+//   width: 27%;
+//   text-align: left;
+//   background-color: rgba(155, 145, 145, 0.49);
 
-    }
-  }
-}
+//   header.brand-name {
+//     font-family: "PT Sans", Helvetica, Arial, sans-serif;
+//       color: #2D2C2C;
+//       font-size: 5rem;
+//     font-weight: bold;
+//     line-height: 1;
+//   }
 
-
-
-//   nav {
-//     padding: 3rem;
-//     position: absolute;
-//     right: 1rem;
-//     bottom: 1rem;
-//     left: 1rem;
-//     .nav-about{
-//       h1 {
-//         font-family: "PT Sans", Helvetica, Arial, sans-serif;
-//         color: rgb(230, 230, 230);
-//         font-size: 5rem;
-//         font-weight: bold;
-//         line-height: 1;
-//       }
-//       p {
-//         font-size: 1.55rem;
-//         color: #F9BEBE;
-//         padding-bottom:2.5rem;
+//   ul {
+//     list-style: none;
+//     li {
+//       text-align: left;
+//       a {
+//         text-decoration: none;
+//         color: darkblue;
 //       }
 //     }
 //   }
 // }
+// form {
+//   text-align: left;
+//   background-image: linear-gradient(to bottom, whitesmoke, lightgray);
+//   margin: 10px;
+//   padding: 5px 10px 10px 15px;
+//   label {
+//     color: darkblue;
+//     margin: 6px;
+//   }
+//   input {
+//     width: 100%;
+//     height: 1.5rem;
+//     box-sizing: border-box;
 
-div.nav-links {
-  padding-bottom: 2.5rem;
+//   }
+// }
+// div.nav-links {
+//   padding-bottom: 2.5rem;
 
-  a {
-    display: block;
-    padding-bottom: 1.5rem;
-    font-size: 1.25rem;
-    color: #252424;
-  }
-}
+//   a {
+//     display: block;
+//     padding-bottom: 1.5rem;
+//     font-size: 1.25rem;
+//     color: #252424;
+//   }
+// }

@@ -1,6 +1,17 @@
-<div class="content">
-<h1>Ur Desk</h1>
-<ss-timelines></ss-timelines>
-<art-form></art-form>
-<art-object></art-object>
+<div md-content layout-padding>
+  <h1>Your Desk, Your timelines</h1>
+  <h4>Timeline List</h4>
+  <div ng-controller="TimelinesController as timelinesController">
+    <md-card ng-repeat="timeline in timelinesController.timelines">
+      <img src="{{timeline.feature_image}}" class="md-card-image" alt="Washed Out">
+      <md-card-content>
+      <h3 class="md-title" ng-click="timelinesController.activateTimeline(timeline)" href="#/timeline-show">{{ timeline.title }}</h3>
+      <p>{{ timeline.description }}</p>
+      <md-button ng-click="timelinesController.deleteTimeline(timeline)">del</md-button>
+      </md-card-content>
+    </md-card>
+  </div>
 </div>
+<!--
+<art-object></art-object>
+ -->

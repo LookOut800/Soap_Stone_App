@@ -3,7 +3,7 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
   $routeProvider
     .when('/', {
       templateUrl: 'views/home.html',
-      controller: 'HomeController'
+      controller: 'TimelinesController'
     })
     .when('/login', {
       templateUrl: 'views/login.html'
@@ -13,8 +13,8 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
       controller: 'PostsController',
       controllerAs: 'postsController'
     })
-    .when('/art', {
-      templateUrl: 'views/art-object.html',
+    .when('/object-search', {
+      templateUrl: 'views/art-object-list.html',
       controller: 'CooperHewittController',
       controllerAs: 'cooperHewittController'
     })

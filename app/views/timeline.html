@@ -1,7 +1,7 @@
 <section class="">
 <header id="header" class="timeline">
 
-<active-timelines></active-timelines>
+
   <div class="">
     <form role="form" name="upsertTimeline" ng-submit="timelinesController.upsertTimeline(timelinesController.timeline)" novalidate ng-controller="TimelinesController as timelinesController">
 
@@ -15,13 +15,12 @@
 
       <div class="form-group">
         <label>Title</label>
-        <input type="text" class="form-control" ng-model="timelinesController.timeline.title">
+        <input type="text" class="form-control" ng-model="timelinesController.timeline.title"> <br>
         <label>Description</label>
-        <input type="text" class="form-control" ng-model="timelinesController.timeline.description">
+        <input type="text" class="form-control" ng-model="timelinesController.timeline.description"><br>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="reset" class="btn btn-default" ng-click="timelinesController.cancel()">Cancel</button>
       </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-default" ng-click="timelinesController.cancel()">Cancel</button>
     </form>
   </div>
 </div>

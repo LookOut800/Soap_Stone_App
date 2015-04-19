@@ -1,12 +1,45 @@
-<nav class="navbar">
-  <header>SoapStone</header>
-  <ul>
-    <li><a href="#/" title="">Desk</a></li>
-    <li ng-if="!navbarController.isLoggedin()"><a ng-href="#/login" title="">Login</a></li>
-    <li ng-if="navbarController.isLoggedin()"><a href="javascript:void(0)" ng-click="navbarController.logout()">Logout</a></li>
-<!--     <li ng-if="navbarController.isLoggedin()"><a ng-href="#/posts" title="">My Posts</a></li>
-    <li nf-if="navbarController.isLoggedin()"><a ng-href="#/timelines">My Timelines</a></li> -->
-    <li nf-if="navbarController.isLoggedin()"><a ng-href="#/timeline-show">Active Timeline</a></li>
-  </ul>
-  <!-- <active-timelines></active-timelines> -->
-</nav>
+<div ng-controller="NavbarController" layout="column" style="height:100%;">
+  <!-- <section layout="row" flex> -->
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-theme-orange">
+        <h1 class="md-toolbar-tools">SoapStone</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+        <ul show-gt-md>
+          <li><a href="#/" title="">Desk</a></li>
+          <li ng-if="!NavbarController.isLoggedin()"><a ng-href="#/login" title="">Login</a></li>
+          <li ng-if="NavbarController.isLoggedin()"><a href="javascript:void(0)" ng-click="NavbarController.logout()">Logout</a></li>
+          <li nf-if="NavbarController.isLoggedin()"><a ng-href="#/timeline-show">Active Timeline</a></li>
+        </ul>
+        <active-timelines></active-timelines>
+        <div class="timeline-form">
+          <ss-timelines></ss-timelines>
+        </div>
+        <div class="search-form">
+          <art-form></art-form>
+        </div>
+      </md-content>
+    </md-sidenav>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <form>
+          <md-input-container>
+            <label for="testInput">Test input</label>
+            <input type="text" id="testInput"
+                   ng-model="data" md-sidenav-focus>
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary">
+          Close Sidenav Right
+        </md-button>
+      </md-content>
+    </md-sidenav>
+  <!-- </section> -->
+</div>

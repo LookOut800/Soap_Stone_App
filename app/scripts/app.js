@@ -13,6 +13,7 @@ angular.module('soapStoneApp', [
   'ngAria',
   'ngCookies',
   'ngMessages',
+  'ngMaterial',
   'ngResource',
   'ngRoute',
   'ngSanitize',
