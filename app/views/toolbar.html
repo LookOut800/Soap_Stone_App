@@ -11,15 +11,12 @@
         <span flex></span>
           <md-button class="md-icon-button" aria-label="Favorite" ng-if="!NavbarController.isLoggedin()" href="#/login" title=""><md-icon md-svg-icon="images/icons/person.svg" style="color: greenyellow;">Login</md-icon></md-button>
           <md-button ng-if="NavbarController.isLoggedin()"><a class="md-button" href="javascript:void(0)" ng-click="NavbarController.logout()">Logout</a></md-button>
-          <md-button nf-if="NavbarController.isLoggedin()"><a ng-href="#/timeline-show">Active Timeline</a></md-button>
+          <md-button nf-if="NavbarController.isLoggedin()" ng-href="#/timeline-show">Active Timeline</md-button>
         <span flex></span>
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon md-svg-icon="images/icons/more_vert.svg"></md-icon>
+        <md-button class="md-icon-button" href="#/timeline-show" aria-label="More">
+          <md-icon md-svg-icon="images/icons/server.svg"></md-icon>
         </md-button>
-        <md-button ng-click="toggleRight()"
-            class="md-button">
-            RightNav
-          </md-button>
+        <md-button class="md-icon-button" ng-click="toggleRight()"><md-icon md-svg-icon="images/icons/texture.svg"></md-icon></md-button>
       </div>
     </md-toolbar>
   </md-content>

@@ -1,8 +1,8 @@
-ng-view {
-  width: 80%;
-  padding: 3rem;
-  padding-top: 1rem;
-}
+// ng-view {
+//   width: 80%;
+//   padding: 3rem;
+//   padding-top: 1rem;
+// }
 md-grid-tile {
   border: 1px solid black;
   overflow: hidden;
@@ -12,6 +12,8 @@ md-grid-tile {
   }
 }
 md-card {
+  width: 80%;
+  margin-left: 10%;
   // max-height: 250px;
   // min-height: 250px;
 
