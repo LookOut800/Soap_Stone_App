@@ -1,26 +1,17 @@
-<div ng-controller="NavbarController" layout="column" style="height:100%;">
+<!-- <div ng-controller="NavbarController" layout="column" style=""> -->
   <!-- <section layout="row" flex> -->
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <md-toolbar class="md-theme-orange">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 ng-isolate-scope md-locked-open md-closed" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-default-theme">
         <h1 class="md-toolbar-tools">SoapStone</h1>
       </md-toolbar>
-      <md-content layout-padding ng-controller="LeftCtrl">
+      <md-content flex role="navigation" layout-padding ng-controller="LeftCtrl">
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
+          Close Me
         </md-button>
-        <ul show-gt-md>
-          <li><a href="#/" title="">Desk</a></li>
-          <li ng-if="!NavbarController.isLoggedin()"><a ng-href="#/login" title="">Login</a></li>
-          <li ng-if="NavbarController.isLoggedin()"><a href="javascript:void(0)" ng-click="NavbarController.logout()">Logout</a></li>
-          <li nf-if="NavbarController.isLoggedin()"><a ng-href="#/timeline-show">Active Timeline</a></li>
-        </ul>
         <active-timelines></active-timelines>
-        <div class="timeline-form">
-          <ss-timelines></ss-timelines>
-        </div>
-        <div class="search-form">
-          <art-form></art-form>
-        </div>
+        <ss-timelines></ss-timelines>
+        <art-form></art-form>
+
       </md-content>
     </md-sidenav>
 
@@ -31,15 +22,15 @@
       <md-content ng-controller="RightCtrl" layout-padding>
         <form>
           <md-input-container>
-            <label for="testInput">Test input</label>
+            <label for="testInput">Test note</label>
             <input type="text" id="testInput"
                    ng-model="data" md-sidenav-focus>
           </md-input-container>
         </form>
         <md-button ng-click="close()" class="md-primary">
-          Close Sidenav Right
+          Close Me
         </md-button>
       </md-content>
     </md-sidenav>
   <!-- </section> -->
-</div>
+<!-- </div> -->

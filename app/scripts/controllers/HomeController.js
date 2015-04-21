@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('HomeController', homeController);
+angular.module('soapStoneApp').controller('HomeController', homeController);
 homeController.$inject = [];
 
 function homeController(){

@@ -1,12 +1,13 @@
 'use strict';
 angular.module('MainController').controller('ArtObjectController', artObjectController);
 
-artObjectController.$inject = ['ArtObjectFactory', '$scope'];
+artObjectController.$inject = ['ArtObjectFactory', 'TimelinesFactory', '$scope'];
 
-function artObjectController(ArtObjectFactory, $scope){
+function artObjectController(ArtObjectFactory, TimelinesFactory, $scope){
   var vm = this;
   vm.artObjects = ArtObjectFactory.artObjects;
-
+  // $scope.artObjects = ArtObjectFactory.artObjects;
+  // $scope.artObject = ArtObjectFactory.artObject;
   $scope.$on('$viewContentLoaded', function(){
     console.log('lets get your art objects');
     ArtObjectFactory.getArtObejcts();

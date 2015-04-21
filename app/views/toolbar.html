@@ -1,0 +1,26 @@
+<div ng-controller="NavbarController">
+  <md-content>
+    <md-toolbar class="md-default-theme">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span><a class="md-title" href="#/" title="">Desk</a></span>
+        </h2>
+        <span flex></span>
+          <md-button class="md-icon-button" aria-label="Favorite" ng-if="!NavbarController.isLoggedin()" href="#/login" title=""><md-icon md-svg-icon="images/icons/person.svg" style="color: greenyellow;">Login</md-icon></md-button>
+          <md-button ng-if="NavbarController.isLoggedin()"><a class="md-button" href="javascript:void(0)" ng-click="NavbarController.logout()">Logout</a></md-button>
+          <md-button nf-if="NavbarController.isLoggedin()"><a ng-href="#/timeline-show">Active Timeline</a></md-button>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="images/icons/more_vert.svg"></md-icon>
+        </md-button>
+        <md-button ng-click="toggleRight()"
+            class="md-button">
+            RightNav
+          </md-button>
+      </div>
+    </md-toolbar>
+  </md-content>
+</div>

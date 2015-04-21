@@ -22,12 +22,12 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
     var user = JSON.parse($window.localStorage.getItem('ss-user'));
     var timeline_id = JSON.parse($window.localStorage.getItem('ss-user-timeline'));
 
-    var timeline_params = {
-      art_object: {
-          timeline_id: timeline_id,
-          thumbnail: artObject.images[0].n.url
-        }
-    };
+    // var timeline_params = {
+    //   art_object: {
+    //       timeline_id: timeline_id,
+    //       thumbnail: artObject.images[0].n.url
+    //     }
+    // };
 
     var params = {
         art_object: {
@@ -43,12 +43,12 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
         }
     };
 
-    return $http.patch(ServerUrl + '/timeslines', timeline_params).success(function(response){
-      debugger;
-      console.log('Successful Timeline update:', timeline_params, response, status);
-    }).error(function(status){
-      console.log('Youre doing it wrong:', status);
-    });
+    // return $http.patch(ServerUrl + '/timelines', timeline_params).success(function(response){
+    //   debugger;
+    //   console.log('Successful Timeline update:', timeline_params, response, status);
+    // }).error(function(status){
+    //   console.log('Youre doing it wrong:', status);
+    // });
 
     return $http.post(ServerUrl + '/art_objects', params).success(function(response){
       artObjects.push(response);

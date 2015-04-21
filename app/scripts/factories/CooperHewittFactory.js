@@ -1,14 +1,15 @@
-'use strict';
+-'use strict';
 angular.module('soapStoneApp').factory('CooperHewittFactory', ['$http', '$window', 'CooperHewittUrl', 'CooperApiAccess', function($http, $window, CooperHewittUrl, CooperApiAccess){
   var artObjects = [];
   var artObject = {};
   var urlParams;
 
-  var searchObjects = function(params){
+  var searchObjects = function(params, $scope){
     // console.log(artObjects);
+
+    debugger;
     // var data = JSON.parse($window.localStorage.getItem('ss-user'));
     urlParams = _parseSearch(params);
-    // artObjects = [];
     return $http.get(CooperHewittUrl+'cooperhewitt.search.objects&access_token='+CooperApiAccess+urlParams+'&has_image=YES&page=1&per_page=100').success(function(response){
       _parseResponse(response);
       console.log(urlParams, response, status, artObjects);

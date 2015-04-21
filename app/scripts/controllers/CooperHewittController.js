@@ -14,6 +14,10 @@ function cooperHewittController(CooperHewittFactory, ArtObjectFactory, $scope){
     type: ''
   };
 
+  $scope.clearSearchResults = function(){
+    // angular.element
+  };
+
   $scope.search = function(searchParams){
     console.log('lets search:', searchParams);
     CooperHewittFactory.searchObjects(searchParams);

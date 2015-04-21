@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -16,16 +16,17 @@
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="soapStoneApp">
+  <body ng-app="soapStoneApp" layout="row" cz-shortcut-listen="true">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- YOUR APPLICATION CONTENT GOES HERE -->
-    <section layout="row" flex>
-    <ss-navbar></ss-navbar>
-    <ng-view></ng-view>
-    </section>
+
+    <ss-navbar style="z-index: 5;"></ss-navbar>
+    <div layout="column" tabindex="-1" role="main" flex>
+    <ss-toolbar class="md-default-theme"></ss-toolbar>
+    <md-content ng-view md-scroll-y flex layout-padding class="md-default-theme"></md-content>
+    </div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -73,11 +74,13 @@
     <script src="scripts/directives/MainDirective.js"></script>
     <script src="scripts/directives/LoginDirective.js"></script>
     <script src="scripts/directives/NavbarDirective.js"></script>
+    <script src="scripts/directives/ToolbarDirective.js"></script>
     <script src="scripts/directives/ArtSearchDirective.js"></script>
     <script src="scripts/directives/ArtObjectDirective.js"></script>
     <script src="scripts/directives/ActiveTimelinesDirective.js"></script>
     <script src="scripts/directives/TimelinesDirective.js"></script>
 
+    <!-- services -->
 
     <!-- endbuild -->
 

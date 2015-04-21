@@ -15,9 +15,13 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
       });
   };
 
+  // var deactivateTimeline = function(){
+  //    timeline = {};
+  // };
+
   var activateTimeline = function(activeTimeline){
     $window.localStorage.setItem('ss-user-timeline', activeTimeline.id);
-    // timeline = activeTimeline;
+    angular.copy(activeTimeline, timeline);
   };
 
   var upsertTimeline = function(timeline){
@@ -25,6 +29,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
     var params = {
       timeline: timeline
     };
+
     return $http.post(ServerUrl + '/timelines', params);
   };
 
@@ -50,6 +55,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
     timelines: timelines,
     setTimeline: setTimeline,
     getTimelines: getTimelines,
+    // deactivateTimeline: deactivateTimeline,
     activateTimeline: activateTimeline,
     upsertTimeline: upsertTimeline,
     deleteTimeline: deleteTimeline,

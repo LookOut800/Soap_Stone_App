@@ -1,13 +1,19 @@
 
-<div ng-controller="CooperHewittController">
+<div ng-controller="CooperHewittController" layout="column">
   <form novalidate class="form art-form" name="artForm">
-  <h1>Object Search</h1>
-  <label>Title:</label> <input type="text" ng-model="artObject.title" /><br/>
-    <label>Period:</label> <input type="text" ng-model="artObject.period" /><br/>
-    <label>Color:</label> <input type="text" ng-model="artObject.color" /><br/>
-    <label>Medium:</label> <input type="text" ng-model="artObject.medium" /><br/>
-    <label>Type:</label> <input type="text" ng-model="artObject.type" /><br/>
-    <a ng-href="#/object-search" ng-click="search(artObject)">Search!</a>
-<!--     <input type="submit" ng-click="search(artObject) ; $('results').empty()" value="Search!" />
- -->  </form>
+  <md-content>
+    <h1>Object Search</h1>
+    <md-input-container>
+    <label>Title:</label> <input type="text" ng-model="artObject.title" /></md-input-container><md-input-container>
+    <label>Period:</label> <input type="text" ng-model="artObject.period" /></md-input-container><md-input-container>
+    <label>Color:</label> <input type="text" ng-model="artObject.color" /></md-input-container><md-input-container>
+    <label>Medium:</label> <input type="text" ng-model="artObject.medium" /></md-input-container><md-input-container>
+    <label>Type:</label> <input type="text" ng-model="artObject.type" /></md-input-container><md-input-container>
+    <md-button class="md-raised md-primary" ng-click="search(artObject)"><a class="md-button" href="#/object-search">Search!</a></md-button></md-input-container>
+    <!-- <md-button ng-click="clearSearchResults()">Reset View</md-button> -->
+  </md-content>
+  </form>
 </div>
+
+<!--
+<input type="submit" ng-click="search(artObject) ; $('results').empty()" value="Search!" /> -->
