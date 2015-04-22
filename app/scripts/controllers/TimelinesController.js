@@ -12,13 +12,12 @@ function timelinesController(TimelinesFactory, $scope, $route){
     description: ''
   };
 
-  $scope.$on('$viewContentLoaded', function(){
-    TimelinesFactory.getTimelines();
-    console.log('gotTimelines on load');
-  });
+  // $scope.$on('$viewContentLoaded', function(){
+  //   TimelinesFactory.getTimelines();
+  //   console.log('gotTimelines on load');
+  // });
 
   $scope.getTimelines = function(){
-    debugger;
     console.log('lets get your timelines');
     TimelinesFactory.getTimelines();
   };
@@ -43,13 +42,11 @@ function timelinesController(TimelinesFactory, $scope, $route){
 
   vm.activateTimeline = function(timeline){
     TimelinesFactory.activateTimeline(timeline);
-    debugger;
-    $route.reload();
+    // $route.reload();
     console.log('Activated:', timeline);
   };
 
   vm.deleteTimeline = function(timeline){
-    debugger;
     TimelinesFactory.deleteTimeline(timeline);
   };
 

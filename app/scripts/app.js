@@ -25,13 +25,13 @@ angular.module('soapStoneApp', [
 if(AuthFactory.isAuthenticated()){
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
     $http.defaults.headers.post.Authorization = 'Token token=' + data.token;
+    TimelinesFactory.getTimelines();
   } else {
     $location.path('/login');
   }
   // $locationProvider.html5Mode(true);
 
   $rootScope.$on('$routeChangeStart',function(event,next){
-    // TimelinesFactory.getTimelines();
     if(!AuthFactory.isAuthenticated()){
       $location.path('/login');
     }

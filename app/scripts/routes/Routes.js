@@ -18,11 +18,11 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
       controller: 'CooperHewittController',
       controllerAs: 'cooperHewittController'
     })
-    .when('/timelines',{
-      templateUrl: 'views/timeline.html',
-      controller: 'TimelinesController',
-      controllerAs: 'timelinesController'
-    })
+    // .when('/timelines',{
+    //   templateUrl: 'views/timeline.html',
+    //   controller: 'TimelinesController',
+    //   controllerAs: 'timelinesController'
+    // })
     .when('/timelines/:timelineId', {
       templateUrl: 'views/timeline-show.html',
       controller: 'ArtObjectController',

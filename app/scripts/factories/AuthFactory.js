@@ -1,6 +1,8 @@
 'use strict';
 angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'ServerUrl', function($http, $window, ServerUrl){
 
+  var user = {};
+
   var login = function(credentials){
     console.log(credentials);
     return $http.post(ServerUrl + '/login', credentials).success(function(response){
@@ -12,12 +14,17 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
     console.log();
     return $http.get(ServerUrl + '/logout').success(function(){
       $window.localStorage.removeItem('ss-user');
+      $window.localStorage.removeItem('ss-user-timeline');
     });
   };
 
-  var newUser = function(userData) {
-    debugger;
-    return $http.post(ServerUrl + '/users' + userData);
+  var newUser = function(user) {
+    var params = {
+      user: user
+    };
+    return $http.post(ServerUrl + '/users', params).success(function(response){
+      _storeSession(response);
+    });
   };
 
   var isAuthenticated = function(){
@@ -38,6 +45,7 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
   };
 
   return{
+    user: user,
     login:login,
     logout:logout,
     newUser: newUser,

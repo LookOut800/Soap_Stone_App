@@ -10,8 +10,8 @@
         </h2>
         <span flex></span>
           <md-button aria-label="Favorite" href="#/login" title="">Login</md-button>
-          <md-button ng-click="navbarController.logout()">Logout</md-button>
-          <md-button nf-if="NavbarController.isLoggedin()" ng-href="#/timeline-show">Active Timeline</md-button>
+          <md-button href="#/login" ng-click="navbarController.logout()">Logout</md-button>
+          <md-button nf-if="NavbarController.isLoggedin()" ng-href="#/timelines/{{timelinesController.timeline.id}}">Active Timeline</md-button>
         <span flex></span>
         <md-button class="md-icon-button" href="#/timeline-show" aria-label="More">
           <md-icon md-svg-icon="images/icons/server.svg"></md-icon>

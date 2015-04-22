@@ -15,10 +15,6 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
       });
   };
 
-  // var deactivateTimeline = function(){
-  //    timeline = {};
-  // };
-
   var activateTimeline = function(activeTimeline){
     $window.localStorage.setItem('ss-user-timeline', activeTimeline.id);
     angular.copy(activeTimeline, timeline);
@@ -34,7 +30,6 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var deleteTimeline = function(timeline) {
-    debugger;
     return $http.delete(ServerUrl + '/timelines/' + timeline.id)
     .then(console.log('Deleted:', timeline));
     // .then(function(response) {

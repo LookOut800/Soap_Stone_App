@@ -30,7 +30,7 @@ function artObjectController(ArtObjectFactory, TimelinesFactory, $scope, $routeP
 
   vm.deleteArtObject = function(artObject) {
     ArtObjectFactory.deleteArtObject(artObject);
-  }
+  };
 
   vm.cancel = function() {
       resetForm();
@@ -44,7 +44,7 @@ function artObjectController(ArtObjectFactory, TimelinesFactory, $scope, $routeP
       });
 
       return errString;
-  }
+  };
 
   function resetForm() {
       ArtObjectFactory.setArtObject({name: '', period: '', medium: '', type: ''});

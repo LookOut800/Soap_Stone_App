@@ -16,7 +16,7 @@
   <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3" md-row-height-gt-md="4:3" md-row-height="3:2" md-gutter="12px" md-gutter-gt-sm="8px" >
     <md-grid-tile class="gray" md-rowspan="2" md-colspan="1" md-colspan-sm="1" ng-repeat="artObject in cooperHewittController.artObjects | limitTo:125">
       <md-card>
-      <img src="{{artObject.images[0].sq.url}}" class="md-card-image" alt="Missing Image">
+      <img ng-src="{{artObject.images[0].sq.url}}" class="md-card-image" alt="Missing Image">
       <md-card-content>
       <!-- <p>{{ artObject.description }}</p> -->
         <h3 ng-click="cooperHewittController.saveItem(artObject)">{{ artObject.title }}</h3>
