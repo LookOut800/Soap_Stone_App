@@ -1,5 +1,5 @@
 
-<div class="content">
+<div ng-controller="LoginController as loginController">
 <h1>Login form</h1>
 <form class="login-form" name="loginForm" ng-submit="loginController.login(loginController.credentials)" novalidate>
   <div class="form-group">
@@ -14,4 +14,6 @@
     <input type="submit" class="button-submit" ng-disabled="loginform.$invalid" value="Login">
   </div>
 </form>
-</div>
+
+<h2>New User Form</h2>
+<form class="new-user-form" name="newUserForm" ng-submit="loginController.newUser(loginController.credentials)"></form>

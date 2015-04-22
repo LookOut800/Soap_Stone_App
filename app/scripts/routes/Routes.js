@@ -23,11 +23,16 @@ angular.module('soapStoneApp').config(['$routeProvider', function($routeProvider
       controller: 'TimelinesController',
       controllerAs: 'timelinesController'
     })
-    .when('/timeline-show', {
+    .when('/timelines/:timelineId', {
       templateUrl: 'views/timeline-show.html',
       controller: 'ArtObjectController',
       controllerAs: 'artObjectController'
     })
+    // .when('/timeline-show', {
+    //   templateUrl: 'views/timeline-show.html',
+    //   controller: 'ArtObjectController',
+    //   controllerAs: 'artObjectController'
+    // })
     .otherwise({
       redirectTo: '/'
     });

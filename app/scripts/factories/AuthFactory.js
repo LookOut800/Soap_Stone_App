@@ -15,6 +15,11 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
     });
   };
 
+  var newUser = function(userData) {
+    debugger;
+    return $http.post(ServerUrl + '/users' + userData);
+  };
+
   var isAuthenticated = function(){
     var data = JSON.parse($window.localStorage.getItem('ss-user'));
     if(data) {
@@ -29,12 +34,13 @@ angular.module('soapStoneApp').factory('AuthFactory', ['$http', '$window', 'Serv
 
   var _storeSession = function(data) {
     $window.localStorage.setItem('ss-user', JSON.stringify(data));
-    // $http.defaults.headers.common.Authorization = 'Token token=' + data.token;
+    $http.defaults.headers.post.Authorization = 'Token token=' + data.token;
   };
 
   return{
     login:login,
     logout:logout,
+    newUser: newUser,
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage
   };

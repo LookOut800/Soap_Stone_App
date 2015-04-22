@@ -1,9 +1,9 @@
 'use strict';
 angular.module('MainController').controller('TimelinesController', timelinesController);
 
-timelinesController.$inject = ['TimelinesFactory', '$scope'];
+timelinesController.$inject = ['TimelinesFactory', '$scope', '$route'];
 
-function timelinesController(TimelinesFactory, $scope){
+function timelinesController(TimelinesFactory, $scope, $route){
   var vm = this;
   vm.timeline = TimelinesFactory.timeline;
   vm.timelines = TimelinesFactory.timelines;
@@ -43,6 +43,8 @@ function timelinesController(TimelinesFactory, $scope){
 
   vm.activateTimeline = function(timeline){
     TimelinesFactory.activateTimeline(timeline);
+    debugger;
+    $route.reload();
     console.log('Activated:', timeline);
   };
 

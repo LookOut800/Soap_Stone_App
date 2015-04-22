@@ -58,20 +58,21 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
     });
   };
 
-  // var deleteArtObject = function(artObject){
-  //   return $http.delete(ServerUrl + '/artObjects' + artObject.id)
-  //     .then(function(response){
-  //       artObjects.splice(_findArtObjectsIndexById(artObject.id), 1);
-  //     });
-  // };
+  var deleteArtObject = function(artObject){
+    debugger;
+    return $http.delete(ServerUrl + '/art_objects/' + artObject.id)
+      .then(function(response){
+        artObjects.splice(_findArtObjectsIndexById(artObject.id), 1);
+      });
+  };
 
-  // var _findArtObjectsIndexById = function(id){
-  //   for (var i = 0; i < artObjects.length; i++) {
-  //     if (artObjects[i].id === id) {
-  //       return i;
-  //     }
-  //   }
-  // };
+  var _findArtObjectsIndexById = function(id){
+    for (var i = 0; i < artObjects.length; i++) {
+      if (artObjects[i].id === id) {
+        return i;
+      }
+    }
+  };
 
 
   return {
@@ -79,7 +80,7 @@ angular.module('soapStoneApp').factory('ArtObjectFactory', ['$http', '$window', 
     artObjects: artObjects,
     // setArtObject: setArtObject,
     getArtObejcts: getArtObejcts,
-    upsertArtObject: upsertArtObject
-    // deleteArtObject: deleteArtObject
+    upsertArtObject: upsertArtObject,
+    deleteArtObject: deleteArtObject
   };
 }]);

@@ -1,11 +1,12 @@
 'use strict';
 angular.module('MainController').controller('ArtObjectController', artObjectController);
 
-artObjectController.$inject = ['ArtObjectFactory', 'TimelinesFactory', '$scope'];
+artObjectController.$inject = ['ArtObjectFactory', 'TimelinesFactory', '$scope', '$routeParams'];
 
-function artObjectController(ArtObjectFactory, TimelinesFactory, $scope){
+function artObjectController(ArtObjectFactory, TimelinesFactory, $scope, $routeParams){
   var vm = this;
   vm.artObjects = ArtObjectFactory.artObjects;
+  $scope.timeline_id = $routeParams.timeline_id;
   // $scope.artObjects = ArtObjectFactory.artObjects;
   // $scope.artObject = ArtObjectFactory.artObject;
   $scope.$on('$viewContentLoaded', function(){
@@ -19,13 +20,17 @@ function artObjectController(ArtObjectFactory, TimelinesFactory, $scope){
   };
 
   vm.upsertArtObject = function(artObject) {
-      ArtObjectFactory.upsertArtObject(artObject).then(function() {
-          resetForm();
-      }, function(response) {
-          vm.serverErrors = true;
-          vm.serverErrorMsg = handleErrors(response.data);
-      });
+    ArtObjectFactory.upsertArtObject(artObject).then(function() {
+        resetForm();
+    }, function(response) {
+        vm.serverErrors = true;
+        vm.serverErrorMsg = handleErrors(response.data);
+    });
   };
+
+  vm.deleteArtObject = function(artObject) {
+    ArtObjectFactory.deleteArtObject(artObject);
+  }
 
   vm.cancel = function() {
       resetForm();

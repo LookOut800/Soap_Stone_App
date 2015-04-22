@@ -1,6 +1,6 @@
 angular
   .module('MainController', ['ngMaterial'])
-  .controller('NavbarController', function ($scope, $timeout, $mdSidenav, $log) {
+  .controller('NavbarController', function (AuthFactory, $location, $scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
     /**
@@ -9,10 +9,12 @@ angular
      */
     var vm = this;
     vm.isLoggedin = function(){
+      debugger;
       return AuthFactory.isAuthenticated();
     };
 
     vm.logout = function(){
+      debugger;
       AuthFactory.logout().then(function(){
         $location.path('/');
       });
@@ -24,7 +26,7 @@ angular
           .then(function () {
             $log.debug("toggle " + navID + " is done");
           });
-      }
+      };
     }
   })
   .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {

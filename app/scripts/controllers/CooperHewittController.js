@@ -7,6 +7,7 @@ function cooperHewittController(CooperHewittFactory, ArtObjectFactory, $scope){
   var vm = this;
   vm.artObjects = CooperHewittFactory.artObjects;
   $scope.artObject = {
+    query: '',
     title: '',
     period:'',
     color:'',

@@ -3,7 +3,7 @@
   <!-- <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3" md-row-height-gt-md="3:3" md-row-height="3:3" md-gutter="12px" md-gutter-gt-sm="8px" > -->
     <div ng-repeat="item in artObjectController.artObjects | limitTo:50">
        <md-card>
-        <img class="md-card-image" src="{{item.feature_image}}" alt="Missing IMG" ng-click="cooperHewittController.saveItem(item)">
+        <img class="md-card-image" src="{{item.feature_image}}" alt="Missing IMG">
         <md-card-content>
         <h3 class="md-title">{{item.title}}</h3>
         <p>{{item.description}}</p>
@@ -12,7 +12,7 @@
         <!-- <p>{{item.medium}}</p> -->
         <!-- <p>{{item.type}}</p> -->
         </md-card-content>
-
+        <md-button class="md-button" ng-click="artObjectController.deleteArtObject(item)">Delete Object</md-button>
       </md-card>
     </div>
   <!-- </md-grid-list> -->

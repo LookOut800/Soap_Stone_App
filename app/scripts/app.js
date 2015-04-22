@@ -22,6 +22,12 @@ angular.module('soapStoneApp', [
   'MainDirective'
 ]).run(function($rootScope, $http, $window, $location, AuthFactory, PostsFactory, CooperHewittFactory, ArtObjectFactory, TimelinesFactory){
 
+if(AuthFactory.isAuthenticated()){
+    var data = JSON.parse($window.localStorage.getItem('ss-user'));
+    $http.defaults.headers.post.Authorization = 'Token token=' + data.token;
+  } else {
+    $location.path('/login');
+  }
   // $locationProvider.html5Mode(true);
 
   $rootScope.$on('$routeChangeStart',function(event,next){
