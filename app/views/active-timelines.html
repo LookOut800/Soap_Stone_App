@@ -1,8 +1,0 @@
-<div ng-controller="TimelinesController as timelinesController">
-  <md-content flex layout="column" class="ng-scope" md-scroll-y layout-align="center" style="padding: 5%">
-    <md-select ng-model="timeline" placeholder="Set Timeline"><md-option ng-repeat="timeline in timelinesController.timelines" ng-click="timelinesController.activateTimeline(timeline)"><a href="#/timelines/{{timeline.id}}">{{ timeline.title }}</a></md-option>
-    </md-select>
-  </md-content>
-</div>
-
-<!-- md-on-open="timelinesController.getTimelines()" -->
