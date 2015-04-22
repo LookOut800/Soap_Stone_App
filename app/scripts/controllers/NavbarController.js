@@ -1,6 +1,6 @@
 angular
   .module('MainController', ['ngMaterial'])
-  .controller('NavbarController', function (AuthFactory, $location, $scope, $timeout, $mdSidenav, $log) {
+  .controller('NavbarController', function (AuthFactory, TimelinesFactory, $location, $scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
     /**
@@ -14,6 +14,7 @@ angular
 
     vm.logout = function(){
       AuthFactory.logout().then(function(){
+        // TimelinesFactory.timelines = [];
         $location.path('/');
       });
     };

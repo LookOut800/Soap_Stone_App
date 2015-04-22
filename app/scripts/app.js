@@ -34,6 +34,7 @@ if(AuthFactory.isAuthenticated()){
   $rootScope.$on('$routeChangeStart',function(event,next){
     if(!AuthFactory.isAuthenticated()){
       $location.path('/login');
+
     }
   });
 });

@@ -1,9 +1,9 @@
 'use strict';
 angular.module('soapStoneApp').controller('LoginController', LoginController);
 
-LoginController.$inject = ['AuthFactory','$location', '$scope'];
+LoginController.$inject = ['AuthFactory', 'TimelinesFactory', '$location', '$scope'];
 
-function LoginController(AuthFactory, $location, $scope) {
+function LoginController(AuthFactory, TimelinesFactory, $location, $scope) {
   var vm = this;
   vm.user = AuthFactory.user;
 
@@ -11,6 +11,8 @@ function LoginController(AuthFactory, $location, $scope) {
     console.log('logger');
     AuthFactory.login(credentials).then(function(response){
       vm.credentials = {};
+      debugger;
+      // TimelinesFactory.getTimelines();
       $location.path('/');
     });
   };

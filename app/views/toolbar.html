@@ -3,7 +3,10 @@
     <md-toolbar class="md-default-theme">
       <div class="md-toolbar-tools">
         <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
-          <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+            <path d="M0 0h36v36h-36z" fill="none"/>
+            <path d="M4 27h28v-3h-28v3zm0-8h28v-3h-28v3zm0-11v3h28v-3h-28z"/>
+          </svg>
         </md-button>
         <h2>
           <span><a class="md-title" href="#/" title="">Desk</a></span>
@@ -11,12 +14,17 @@
         <span flex></span>
           <md-button aria-label="Favorite" href="#/login" title="">Login</md-button>
           <md-button href="#/login" ng-click="navbarController.logout()">Logout</md-button>
-          <md-button nf-if="NavbarController.isLoggedin()" ng-href="#/timelines/{{timelinesController.timeline.id}}">Active Timeline</md-button>
+          <md-button nf-if="NavbarController.isLoggedin()" ng-href="#/object-search">Query Results</md-button>
         <span flex></span>
         <md-button class="md-icon-button" href="#/timeline-show" aria-label="More">
-          <md-icon md-svg-icon="images/icons/server.svg"></md-icon>
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M4,1H20A1,1 0 0,1 21,2V6A1,1 0 0,1 20,7H4A1,1 0 0,1 3,6V2A1,1 0 0,1 4,1M4,9H20A1,1 0 0,1 21,10V14A1,1 0 0,1 20,15H4A1,1 0 0,1 3,14V10A1,1 0 0,1 4,9M4,17H20A1,1 0 0,1 21,18V22A1,1 0 0,1 20,23H4A1,1 0 0,1 3,22V18A1,1 0 0,1 4,17M9,5H10V3H9V5M9,13H10V11H9V13M9,21H10V19H9V21M5,3V5H7V3H5M5,11V13H7V11H5M5,19V21H7V19H5Z" />
+</svg>
+
         </md-button>
-        <md-button class="md-icon-button" ng-click="toggleRight()"><md-icon md-svg-icon="images/icons/texture.svg"></md-icon></md-button>
+        <md-button class="md-icon-button" ng-click="toggleRight()"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M9.29,21H12.12L21,12.12V9.29M19,21C19.55,21 20.05,20.78 20.41,20.41C20.78,20.05 21,19.55 21,19V17L17,21M5,3A2,2 0 0,0 3,5V7L7,3M11.88,3L3,11.88V14.71L14.71,3M19.5,3.08L3.08,19.5C3.17,19.85 3.35,20.16 3.59,20.41C3.84,20.65 4.15,20.83 4.5,20.92L20.93,4.5C20.74,3.8 20.2,3.26 19.5,3.08Z" />
+</svg></md-button>
       </div>
     </md-toolbar>
   </md-content>

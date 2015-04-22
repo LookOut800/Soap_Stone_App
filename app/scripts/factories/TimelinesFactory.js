@@ -9,6 +9,7 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
   };
 
   var getTimelines = function(){
+    // timelines = [];
     return $http.get(ServerUrl + '/users/' + user.id + '/timelines')
       .then(function(response){
         angular.copy(response.data, timelines);
@@ -26,15 +27,18 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
       timeline: timeline
     };
 
-    return $http.post(ServerUrl + '/timelines', params);
+    return $http.post(ServerUrl + '/timelines', params).then(function(response){
+      console.log('getting timeline after upsert');
+      getTimelines();
+    });
   };
 
   var deleteTimeline = function(timeline) {
     return $http.delete(ServerUrl + '/timelines/' + timeline.id)
-    .then(console.log('Deleted:', timeline));
-    // .then(function(response) {
-    //     timelines.splice(_findTimelineIndexById(timeline.id), 1);
-    // });
+    // .then(console.log('Deleted:', timeline));
+    .then(function(response) {
+        timelines.splice(_findTimelineIndexById(timeline.id), 1);
+    });
   };
 
   var _findTimelineIndexById = function(id) {
@@ -50,7 +54,6 @@ angular.module('soapStoneApp').factory('TimelinesFactory', ['$http', '$window', 
     timelines: timelines,
     setTimeline: setTimeline,
     getTimelines: getTimelines,
-    // deactivateTimeline: deactivateTimeline,
     activateTimeline: activateTimeline,
     upsertTimeline: upsertTimeline,
     deleteTimeline: deleteTimeline,
